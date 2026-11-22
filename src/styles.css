@@ -644,3 +644,25 @@ input:focus-visible {
     transition-duration: 0.01ms !important;
   }
 }
+
+.settings .credits {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin: 0 0 16px;
+  user-select: text;
+}
+
+.settings .credits summary {
+  cursor: pointer;
+  font-size: 15px;
+  padding: 6px 0;
+}
+
+.settings .credits ul {
+  padding-left: 18px;
+  margin: 6px 0;
+}
+
+.settings .credits a {
+  color: var(--accent);
+}

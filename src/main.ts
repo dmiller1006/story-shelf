@@ -2,6 +2,7 @@ import '@fontsource/andika/latin-400.css';
 import '@fontsource/andika/latin-700.css';
 import './styles.css';
 import { MusicEngine, renderMood, renderSfx } from './audio/engine';
+import { TRACKS } from './audio/clips';
 import { MOOD_DEFS } from './audio/moods';
 import { BOOKS, findBook, imageUrl } from './books';
 import type { Book } from './books/types';
@@ -70,6 +71,7 @@ function applySettings() {
   document.documentElement.dataset.theme = settings.theme;
   document.documentElement.dataset.textSize = settings.textSize;
   engine.setVolume(settings.volume);
+  engine.setRecordings(settings.recordings);
   engine.setMusicOn(settings.music);
   saveSettings(settings);
   renderDebug();
@@ -234,7 +236,7 @@ function renderPage(book: Book, index: number) {
   lastPageKey = key;
   saveProgress(book.id, index);
 
-  engine.setMood(page.mood);
+  engine.setMood(page.mood, page.track);
   if (page.sting && previousKey !== key && settings.sfx) window.setTimeout(() => engine.sfx(page.sting!), 150);
 
   const turn = (delta: number) => {
@@ -453,6 +455,10 @@ function openSettings() {
       settings.theme = v;
       applySettings();
     })),
+    toggle('Real orchestra and piano recordings (off: simple built-in music)', settings.recordings, (v) => {
+      settings.recordings = v;
+      applySettings();
+    }),
     toggle('Show debug info', settings.debug, (v) => {
       settings.debug = v;
       applySettings();
@@ -465,6 +471,7 @@ function openSettings() {
         } }, `Start "${currentBook.title}" over`)
       : null,
     h('p', { className: 'hint' }, 'Page turners: arrow keys, Page Up/Down, Space and Enter all work. Xbox controller: A or RB next, B or LB back.'),
+    musicCredits(),
     h('button', { className: 'big-btn', type: 'button', onClick: () => dialog.close() }, 'Done'),
   );
   dialog.addEventListener('close', () => {
@@ -474,6 +481,23 @@ function openSettings() {
   document.body.append(dialog);
   dialogOpen = true;
   dialog.showModal();
+}
+
+/** Who made each recording. CC BY-SA recordings must be credited where people can see it. */
+function musicCredits() {
+  return h(
+    'details',
+    { className: 'credits' },
+    h('summary', {}, 'Music credits'),
+    h(
+      'ul',
+      {},
+      ...TRACKS.map((t) =>
+        h('li', {}, `${t.composer}, ${t.title}. Performed by ${t.performer}. `, h('a', { href: t.source, target: '_blank', rel: 'noopener' }, t.license), '.'),
+      ),
+    ),
+    h('p', {}, 'Recordings via Wikimedia Commons and Musopen, trimmed and volume-matched for Story Shelf.'),
+  );
 }
 
 // ---------- debug overlay ----------
@@ -492,7 +516,7 @@ function renderDebug() {
   }
   const s = engine.state;
   const where = route.view === 'page' ? `page ${route.index + 1} (${route.book.pages[route.index].mood})` : route.view;
-  debugEl.textContent = [`view: ${where}`, `mood: ${s.mood ?? '-'} playing: ${s.playing ?? '-'}`, `idle: ${s.idle}  audio: ${s.context}  players: ${s.players}`, `last input: ${lastInput || '-'}`].join('\n');
+  debugEl.textContent = [`view: ${where}`, `mood: ${s.mood ?? '-'} playing: ${s.playing ?? '-'} track: ${s.track ?? 'synth'}`, `idle: ${s.idle}  audio: ${s.context}  players: ${s.players}`, `last input: ${lastInput || '-'}`].join('\n');
 }
 window.setInterval(() => settings.debug && renderDebug(), 500);
 

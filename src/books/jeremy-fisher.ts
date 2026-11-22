@@ -50,18 +50,21 @@ export const jeremyFisher: Book = {
       image: 'jf09.jpg',
       alt: "Jeremy climbing onto his round green lily-leaf boat.",
       text: ["The boat was round and green, and very like the other lily-leaves. It was tied to a water-plant in the middle of the pond."],
+      track: 'aquarium',
       mood: 'cozy',
     },
     {
       image: 'jf10.jpg',
       alt: "Jeremy pushing the boat out with a long reed pole.",
       text: ["Mr. Jeremy took a reed pole, and pushed the boat out into open water. \"I know a good place for minnows,\" said Mr. Jeremy Fisher.", "Mr. Jeremy stuck his pole into the mud and fastened the boat to it."],
+      track: 'aquarium',
       mood: 'cozy',
     },
     {
       image: 'jf11.jpg',
       alt: "Jeremy sitting cross-legged on the lily leaf with his fishing tackle.",
       text: ["Then he settled himself cross-legged and arranged his fishing tackle. He had the dearest little red float. His rod was a tough stalk of grass, his line was a fine long white horse-hair, and he tied a little wriggling worm at the end."],
+      track: 'aquarium',
       mood: 'cozy',
     },
     {

@@ -8,6 +8,8 @@ export interface Settings {
   textSize: TextSize;
   theme: Theme;
   debug: boolean;
+  /** Real orchestra and piano recordings; off plays the simple synthesized loops. */
+  recordings: boolean;
 }
 
 export const DEFAULTS: Settings = {
@@ -17,6 +19,7 @@ export const DEFAULTS: Settings = {
   textSize: 'L',
   theme: 'paper',
   debug: false,
+  recordings: true,
 };
 
 const KEY = 'story-shelf.settings';

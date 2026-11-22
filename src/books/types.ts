@@ -10,6 +10,8 @@ export interface Page {
   text: string[];
   /** Music for this page. Consecutive pages with the same mood keep playing without a change. */
   mood: Mood;
+  /** A specific recording for this page (an id from src/audio/tracks.json). Otherwise the mood's playlist plays. */
+  track?: string;
   /** Sound when the picture is tapped. Defaults to a chime. */
   sfx?: Sfx;
   /** Short musical hit when the page is first reached. */

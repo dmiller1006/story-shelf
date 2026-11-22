@@ -176,15 +176,20 @@ export class ClipPlayer {
     /* recordings schedule themselves */
   }
 
-  private async play(first: boolean) {
+  private async play(first: boolean, attempts = 0): Promise<void> {
     const track = this.playlist[this.index];
     this.onIndex(this.index);
     let url: string;
     try {
       url = await this.pool.url(track.id);
     } catch {
-      this.failed = true;
-      return;
+      // Missing or unreachable file: try the next piece; give up only if none load.
+      if (attempts + 1 >= this.playlist.length) {
+        this.failed = true;
+        return;
+      }
+      this.index = (this.index + 1) % this.playlist.length;
+      return this.play(first, attempts + 1);
     }
     if (this.stopped) return;
     if (this.slot && !this.pool.holds(this.slot, this)) return; // taken over by a newer player

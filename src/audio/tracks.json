@@ -6,7 +6,7 @@
     "performer": "Musopen",
     "license": "Public domain",
     "source": "https://commons.wikimedia.org/wiki/File:Robert_Schumann_-_scenes_from_childhood,_op._15_-_i._of_foreign_lands_and_peoples.ogg",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_i._of_foreign_lands_and_peoples.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_i._of_foreign_lands_and_peoples.ogg",
     "moods": [
       "cozy"
     ]
@@ -18,7 +18,7 @@
     "performer": "Musopen",
     "license": "Public domain",
     "source": "https://commons.wikimedia.org/wiki/File:Robert_Schumann_-_scenes_from_childhood,_op._15_-_viii._at_the_fireside.ogg",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_viii._at_the_fireside.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_viii._at_the_fireside.ogg",
     "moods": [
       "cozy"
     ]
@@ -30,7 +30,7 @@
     "performer": "Musopen",
     "license": "Public domain",
     "source": "https://commons.wikimedia.org/wiki/File:Robert_Schumann_-_scenes_from_childhood,_op._15_-_v._happiness.ogg",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/0/04/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_v._happiness.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/04/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_v._happiness.ogg",
     "moods": [
       "playful"
     ]
@@ -42,7 +42,7 @@
     "performer": "Musopen",
     "license": "Public domain",
     "source": "https://commons.wikimedia.org/wiki/File:Robert_Schumann_-_scenes_from_childhood,_op._15_-_ix._knight_of_the_hobbyhorse.ogg",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/7/78/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_ix._knight_of_the_hobbyhorse.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/78/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_ix._knight_of_the_hobbyhorse.ogg",
     "moods": [
       "playful"
     ]
@@ -54,7 +54,7 @@
     "performer": "Musopen",
     "license": "Public domain",
     "source": "https://commons.wikimedia.org/wiki/File:Robert_Schumann_-_scenes_from_childhood,_op._15_-_vi._an_important_event.ogg",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/1/14/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_vi._an_important_event.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/14/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_vi._an_important_event.ogg",
     "moods": [
       "playful"
     ]
@@ -66,10 +66,13 @@
     "performer": "Musopen Symphony Orchestra",
     "license": "Public domain",
     "source": "https://commons.wikimedia.org/wiki/File:Musopen_-_In_the_Hall_Of_The_Mountain_King.ogg",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Musopen_-_In_the_Hall_Of_The_Mountain_King.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Musopen_-_In_the_Hall_Of_The_Mountain_King.ogg",
     "moods": [
       "sneaky"
-    ]
+    ],
+    "start": 3,
+    "end": 69,
+    "loudness": -24
   },
   {
     "id": "curious-story",
@@ -78,7 +81,7 @@
     "performer": "Musopen",
     "license": "Public domain",
     "source": "https://commons.wikimedia.org/wiki/File:Robert_Schumann_-_scenes_from_childhood,_op._15_-_ii._a_curious_story.ogg",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_ii._a_curious_story.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_ii._a_curious_story.ogg",
     "moods": [
       "sneaky"
     ]
@@ -90,10 +93,11 @@
     "performer": "Musopen",
     "license": "Public domain",
     "source": "https://commons.wikimedia.org/wiki/File:Robert_Schumann_-_scenes_from_childhood,_op._15_-_iii._blind_man%27s_buff.ogg",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_iii._blind_man%27s_buff.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_iii._blind_man%27s_buff.ogg",
     "moods": [
       "chase"
-    ]
+    ],
+    "loudness": -20
   },
   {
     "id": "bumblebee",
@@ -102,10 +106,11 @@
     "performer": "US Army Band",
     "license": "Public domain",
     "source": "https://commons.wikimedia.org/wiki/File:Rimsky-Korsakov_-_flight_of_the_bumblebee.oga",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Rimsky-Korsakov_-_flight_of_the_bumblebee.oga?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Rimsky-Korsakov_-_flight_of_the_bumblebee.oga",
     "moods": [
       "chase"
-    ]
+    ],
+    "loudness": -20
   },
   {
     "id": "mountain-king-chase",
@@ -114,10 +119,13 @@
     "performer": "Musopen Symphony Orchestra",
     "license": "Public domain",
     "source": "https://commons.wikimedia.org/wiki/File:Musopen_-_In_the_Hall_Of_The_Mountain_King.ogg",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Musopen_-_In_the_Hall_Of_The_Mountain_King.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Musopen_-_In_the_Hall_Of_The_Mountain_King.ogg",
     "moods": [
       "chase"
-    ]
+    ],
+    "start": 89,
+    "end": 154.1,
+    "loudness": -20
   },
   {
     "id": "pleading-child",
@@ -126,10 +134,11 @@
     "performer": "Musopen",
     "license": "Public domain",
     "source": "https://commons.wikimedia.org/wiki/File:Robert_Schumann_-_scenes_from_childhood,_op._15_-_iv._pleading_child.ogg",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/4/49/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_iv._pleading_child.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/49/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_iv._pleading_child.ogg",
     "moods": [
       "sad"
-    ]
+    ],
+    "loudness": -23
   },
   {
     "id": "almost-too-serious",
@@ -138,10 +147,11 @@
     "performer": "Musopen",
     "license": "Public domain",
     "source": "https://commons.wikimedia.org/wiki/File:Robert_Schumann_-_scenes_from_childhood,_op._15_-_x._almost_too_serious.ogg",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_x._almost_too_serious.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_x._almost_too_serious.ogg",
     "moods": [
       "sad"
-    ]
+    ],
+    "loudness": -23
   },
   {
     "id": "gymnopedie",
@@ -150,10 +160,11 @@
     "performer": "Robin Alciatore",
     "license": "Public domain",
     "source": "https://commons.wikimedia.org/wiki/File:Erik_Satie_-_gymnopedies_-_la_1_ere._lent_et_douloureux.ogg",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/9/90/Erik_Satie_-_gymnopedies_-_la_1_ere._lent_et_douloureux.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/90/Erik_Satie_-_gymnopedies_-_la_1_ere._lent_et_douloureux.ogg",
     "moods": [
       "sad"
-    ]
+    ],
+    "loudness": -23
   },
   {
     "id": "dreaming",
@@ -162,10 +173,11 @@
     "performer": "Musopen",
     "license": "Public domain",
     "source": "https://commons.wikimedia.org/wiki/File:Robert_Schumann_-_scenes_from_childhood,_op._15_-_vii._dreaming.ogg",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/0/06/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_vii._dreaming.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/06/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_vii._dreaming.ogg",
     "moods": [
       "sleepy"
-    ]
+    ],
+    "loudness": -23
   },
   {
     "id": "child-falling-asleep",
@@ -174,10 +186,11 @@
     "performer": "Musopen",
     "license": "Public domain",
     "source": "https://commons.wikimedia.org/wiki/File:Robert_Schumann_-_scenes_from_childhood,_op._15_-_xii._child_falling_asleep.ogg",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_xii._child_falling_asleep.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_xii._child_falling_asleep.ogg",
     "moods": [
       "sleepy"
-    ]
+    ],
+    "loudness": -23
   },
   {
     "id": "poet-speaks",
@@ -186,10 +199,11 @@
     "performer": "Musopen",
     "license": "Public domain",
     "source": "https://commons.wikimedia.org/wiki/File:Robert_Schumann_-_scenes_from_childhood,_op._15_-_xiii._the_poet_speaks.ogg",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/4/42/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_xiii._the_poet_speaks.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/42/Robert_Schumann_-_scenes_from_childhood%2C_op._15_-_xiii._the_poet_speaks.ogg",
     "moods": [
       "sleepy"
-    ]
+    ],
+    "loudness": -23
   },
   {
     "id": "morning-mood",
@@ -198,7 +212,7 @@
     "performer": "Musopen Symphony Orchestra",
     "license": "Public domain",
     "source": "https://commons.wikimedia.org/wiki/File:Musopen_-_Morning.ogg",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Musopen_-_Morning.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Musopen_-_Morning.ogg",
     "moods": []
   },
   {
@@ -208,7 +222,7 @@
     "performer": "Al Goldstein collection (ibiblio)",
     "license": "CC BY-SA 2.0",
     "source": "https://commons.wikimedia.org/wiki/File:Saint-Saens_-_The_Carnival_of_the_Animals_-_02_Poules_et_coqs.ogg",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Saint-Saens_-_The_Carnival_of_the_Animals_-_02_Poules_et_coqs.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Saint-Saens_-_The_Carnival_of_the_Animals_-_02_Poules_et_coqs.ogg",
     "moods": []
   },
   {
@@ -218,7 +232,7 @@
     "performer": "Al Goldstein collection (ibiblio)",
     "license": "CC BY-SA 2.0",
     "source": "https://commons.wikimedia.org/wiki/File:Saint-Saens_-_The_Carnival_of_the_Animals_-_07_Aquarium.ogg",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Saint-Saens_-_The_Carnival_of_the_Animals_-_07_Aquarium.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Saint-Saens_-_The_Carnival_of_the_Animals_-_07_Aquarium.ogg",
     "moods": []
   }
 ]
