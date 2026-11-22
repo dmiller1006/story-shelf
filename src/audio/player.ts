@@ -40,6 +40,7 @@ export class MoodPlayer {
   private nextTime: number;
   private stopTime = Infinity;
   thin = false;
+  readonly failed = false;
 
   constructor(private readonly kit: inst.Kit, out: AudioNode, mood: Mood, startTime: number, fadeIn?: number) {
     const ctx = kit.ctx;
@@ -76,6 +77,10 @@ export class MoodPlayer {
 
   get finished(): boolean {
     return this.kit.ctx.currentTime > this.stopTime;
+  }
+
+  get key(): string {
+    return this.mood;
   }
 
   /** Schedules every step that starts before `until` (seconds, context time). */
