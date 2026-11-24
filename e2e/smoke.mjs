@@ -320,13 +320,14 @@ if (SHOTS) {
   st = await playing();
   check(st.playing === 'sneaky' && st.track !== null, `a sneaky page switches to a sneaky recording (track: ${st.track})`);
   // Recordings off in grown-up settings: the synth takes over.
-  await page.evaluate(() => {
-    localStorage.setItem('story-shelf.settings', JSON.stringify({ ...JSON.parse(localStorage.getItem('story-shelf.settings') || '{}'), recordings: false }));
-  });
-  await page.reload();
-  await page.click('.story-text');
-  st = await playing();
+  // A fresh page, since openPage's settings script would undo a change on reload.
+  const off = await openPage({ width: 1180, height: 820 }, { path: '#/book/jemima-puddle-duck/9', settings: { debug: true, recordings: false } });
+  await off.page.click('.story-text');
+  await off.page.waitForTimeout(2500);
+  st = await off.page.evaluate(() => window.__storyShelf.engine.state);
   check(st.track === null && st.playing === 'sneaky', `with recordings off, the built-in music plays (track: ${st.track}, mood: ${st.playing})`);
+  errors.push(...off.errors);
+  await off.context.close();
   check(errors.length === 0, `no console errors with recordings (${errors.join(' | ')})`);
   await context.close();
 }
