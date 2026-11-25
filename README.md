@@ -125,4 +125,5 @@ Good next picks, all public domain with original art and mirrored on GitHub by G
 ## Next
 
 - Read-aloud: see [docs/read-aloud.md](docs/read-aloud.md).
+- Music sections matched to page content: see [docs/music-sections.md](docs/music-sections.md).
 - More books.
