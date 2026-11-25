@@ -33,7 +33,12 @@ Every push to `main` runs `.github/workflows/deploy.yml`: install, test, build, 
 
 One-time setup in the repo on GitHub:
 
-1. **Settings → Pages → Build and deployment → Source:** choose **Deploy from a branch**, then branch **gh-pages**, folder **/ (root)**, and Save.
+1. **Settings → Pages → Build and deployment → Source:** choose **Deploy from a branch**, then branch **gh-pages**, folder **/ (root)**, and Save. Or from a terminal, after the first deploy has made the branch:
+
+   ```bash
+   gh api -X POST repos/<user>/story-shelf/pages -f "source[branch]=gh-pages" -f "source[path]=/"
+   ```
+
 2. The site appears at `https://<user>.github.io/story-shelf/` a minute later.
 
 Pages is free for public repos. A private repo needs a paid GitHub plan for Pages.
@@ -46,21 +51,35 @@ On the iPad, open the site in Safari, then Share → **Add to Home Screen**. It 
 | --- | --- | --- |
 | Book data | `src/books/*.ts` | Text, picture, picture description, mood, tap sound and stings for each page |
 | Pictures | `public/books/<id>/` | Public-domain scans from Project Gutenberg (eBooks #14838, #14407, #14814, #15077), resized to 900px and whitened at the edges so they blend into the page |
-| Music | `src/audio/moods.ts` | Six short loops written as note patterns. Synthesized live with the Web Audio API, so there are no audio files and nothing to license |
+| Recordings | `src/audio/tracks.json`, `public/music/` | 19 public-domain classical recordings, three or so per mood, plus a few pieces tied to specific pages |
+| Built-in music | `src/audio/moods.ts` | Six short loops written as note patterns and synthesized live. Used when recordings are off or can't load |
 | Instruments | `src/audio/instruments.ts` | Music box, bell, pluck, flute, pizzicato and soft bass, pad, soft drum, noise sounds |
-| Engine | `src/audio/engine.ts`, `src/audio/player.ts` | Schedules notes ahead of time, crossfades moods, handles idle |
+| Engine | `src/audio/engine.ts`, `src/audio/player.ts`, `src/audio/clips.ts` | Schedules notes ahead of time, crossfades moods, handles idle |
 | Input | `src/input.ts` | Keyboard, page turners, gamepad, swipe |
 | Screens | `src/main.ts`, `src/styles.css` | Shelf, cover, reader, The End, grown-up settings |
 | Offline | `vite.config.ts` | Small service worker plugin that caches every built file |
 
 ### Music rules
 
-- Each page has a mood. Pages in a row with the same mood keep the same loop playing, so the music does not restart.
+- Each page has a mood, and each mood has a short playlist of recordings. Pages in a row with the same mood keep the same piece playing, so the music does not restart. When a piece ends, the next one in the playlist starts. Coming back to a mood later picks up with the next piece.
+- A page can name a specific piece instead (`track` in the book file). Jemima sets off to Grieg's *Morning Mood*, her farmyard gets Saint-Saëns' *Hens and Roosters*, and Jeremy's pond gets *Aquarium*.
+- If a recording can't load (offline before it was cached), the built-in music for that mood plays instead.
 - A new mood waits 0.4 s and then crossfades over about 2 s (chase comes in faster). Flipping quickly through pages does not restart the music on every page.
 - After 75 s with no page turn or tap, the melody drops out and a soft bed stays. After 4 minutes the music fades away. The next page turn brings it back.
 - Music only reflects the page on screen, so it never hints at what comes next.
 - On iPhone and iPad, sound needs one tap first (Apple's rule). The cover's big Start button covers that. It also asks Safari to play through the silent switch, like a media app.
-- All six moods render at a similar loudness (RMS 0.09 to 0.13) with headroom (peaks under 0.85). The e2e test checks this.
+- Recordings are leveled to set loudness: sleepy and sad pieces softest (-23 LUFS), chase loudest (-20), the rest in between (-21). The built-in moods render at a similar loudness to each other (RMS 0.09 to 0.13) with headroom. The e2e test checks this.
+
+### Music recordings
+
+All come from Wikimedia Commons: Schumann's *Kinderszenen* (Musopen), Grieg's *Peer Gynt* (Musopen), Satie's first *Gymnopédie*, *Flight of the Bumblebee* (US Army Band) and two Saint-Saëns pieces from *The Carnival of the Animals*. All are public domain except the two Saint-Saëns, which are CC BY-SA 2.0. Grown-up settings lists every piece with its performer, license and source.
+
+To add or change one:
+
+1. Add an entry to `src/audio/tracks.json` with its Commons page, direct file URL, moods, and optionally `start`, `end` (seconds) and `loudness` (LUFS).
+2. Put the original in `music-src/` (gitignored), named as on Commons. Wikimedia rate-limits cloud servers, so `scripts/fetch-music-sources.sh` downloads them on a home computer and pushes them to a `music-src` branch.
+3. Run `node scripts/build-music.mjs` (add `--only id,id` for some). It trims, fades, levels with ffmpeg's two-pass loudnorm and writes `public/music/<id>.m4a` (AAC 96 kbps).
+4. `npm test` fails if a track has no built file.
 
 ### Page turning
 
@@ -76,7 +95,7 @@ Tapping the picture plays a sound. Most pages give a chime, and some have their 
 
 ### Grown-up settings
 
-Press and hold the gear for about a second. Settings: music on/off, volume, tap sounds, text size (Medium, Large, Huge), Paper or Night theme, debug info, and restart the book. Settings and the current page are saved in the browser.
+Press and hold the gear for about a second. Settings: music on/off, real recordings or built-in music, volume, tap sounds, text size (Medium, Large, Huge), Paper or Night theme, debug info, and restart the book. Music credits are at the bottom. Settings and the current page are saved in the browser.
 
 Add `?debug` to the URL to see the current mood, idle state and the last input. That last one helps when you're testing a new page turner.
 
@@ -86,13 +105,13 @@ Add `?debug` to the URL to see the current mood, idle state and the last input. 
 npm test
 ```
 
-Unit tests: music theory, every mood pattern, book data (each picture exists, valid moods and sounds, full text in order), and key and button mapping.
+Unit tests: music theory, every mood pattern, the recordings list (licenses, sources, every mood covered, every file built), book data (each picture exists, valid moods and sounds, full text in order), and key and button mapping.
 
 ```bash
 npm run build && npm run e2e
 ```
 
-Browser test against the production build. It reads Peter Rabbit cover to cover with a page turner, and checks that text fits without scrolling on all 105 pages of every book at Large and Huge on iPad, phone and laptop sizes. A phone held sideways is the one exception: two long Jemima pages scroll there. It also tests a simulated Xbox controller, swipes, the settings long-press, music on and off, the level of every mood and sound effect, and loading offline. Add `-- --shots <dir>` to save screenshots.
+Browser test against the production build. It reads Peter Rabbit cover to cover with a page turner, and checks that text fits without scrolling on all 105 pages of every book at Large and Huge on iPad, phone and laptop sizes. A phone held sideways is the one exception: two long Jemima pages scroll there. It also tests a simulated Xbox controller, swipes, the settings long-press, music on and off, recordings on and off, the level of every mood and sound effect, and loading offline. Add `-- --shots <dir>` to save screenshots.
 
 ## Adding a book
 
