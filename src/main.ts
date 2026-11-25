@@ -538,7 +538,13 @@ render();
 
 if (import.meta.env.PROD && 'serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js').catch(() => {});
+    const askToSaveMusic = () => navigator.serviceWorker.controller?.postMessage('cache-music');
+    navigator.serviceWorker.addEventListener('controllerchange', askToSaveMusic);
+    navigator.serviceWorker
+      .register('./sw.js')
+      .then(() => navigator.serviceWorker.ready)
+      .then(askToSaveMusic)
+      .catch(() => {});
   });
 }
 
